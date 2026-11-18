@@ -4,7 +4,10 @@ from langchain_chroma.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
 from dotenv import load_dotenv
 
-load_dotenv()
+
+# carregar_documentos
+# dividir os documentos em pedaços de texto ( chunks )
+# vetorizar os chunks com o processo de embedding
 
 PASTA_BASE = "base"
 
@@ -26,11 +29,11 @@ def dividir_chunks(documentos):
         add_start_index=True
     )
     chunks = separador_documentos.split_documents(documentos)
-    print(len(chunks))
     return chunks
 
 def vetorizar_chunks(chunks):
-    db = Chroma.from_documents(chunks, OpenAIEmbeddings(), persist_directory="db")
-    print("Banco de Dados criado")
+    db = Chroma.from_documents(chunks, OpenAIEmbeddings(), persist_directory= "db")
+    print("banco de dados criado")
 
-criar_db()
+
+criar_db
